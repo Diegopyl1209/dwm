@@ -8,8 +8,8 @@ static const unsigned int gappx	    = 4;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = { "Iosevka Nerd Font:style=Regular:size=10", "monospace:size=10" };
+static const char dmenufont[]       = "Iosevka Nerd Font:style=Regular:size=10";
 static const char col_gray1[]       = "#202020";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -43,7 +43,7 @@ static const int refreshrate = 120;  /* refresh rate (per second) for client mov
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
+	{ "󰕰",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
@@ -67,6 +67,8 @@ static const char *termcmd[]  = { "kitty", NULL };
 static const char *upvol[]      = { "wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%+",      NULL };
 static const char *downvol[]    = { "wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%-",      NULL };
 static const char *mutevol[]    = { "wpctl",   "set-mute",   "@DEFAULT_AUDIO_SINK@",      "toggle",   NULL };
+
+static const char *screenshot[] = { "flameshot", "gui", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -106,6 +108,7 @@ static const Key keys[] = {
 	{ 0,              XF86XK_AudioLowerVolume, spawn, 	   {.v = downvol } },
 	{ 0,              XF86XK_AudioMute,        spawn,          {.v = mutevol } },
 	{ 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = upvol   } },
+	{ 0,				XK_Print,  spawn,          {.v = screenshot}},
 };
 
 /* button definitions */
